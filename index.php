@@ -9,6 +9,9 @@ include_once 'page.inc';
     <meta name=description content="Check out the season's offers and specials at our Orlando resort. Located in Central Florida, our close proximity to the theme parks provides plenty of exciting options to keep everyone entertained." />
     <meta name=keywords content="orlando resort deals,orlando resort packages,orlando resort specials,kissimmee resort deals" />
     <link rel=canonical href=https://www.reunionresort.com/specials-and-packages.htm />
+
+    <link media="all" rel="stylesheet" href="stylesheets/custom-map-style.css" />
+
     <script>var WWPSiteProperties={siteId:5003,siteGuid:"aca26e4d-1d05-4a89-bd2e-7c1d4eb09db6",siteCultureCode:"en-US",domainId:5099,domain:"reunionresort.com",domainSSLMandatory:true,mobileDomain:"",mobileDomainSSLMandatory:false,cdbeDomains:["ihotelier.com","reunionresortvacationhomerentals.com"],hasSecureResIBE:false,hasGoogleAnalytics:false,hasMobileSite:false,STFId:1786,OmnitureReportSuiteId:"vizreunionresort.com",TimeZoneName:"Eastern Standard Time"};</script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Source+Sans+Pro:400,400i|Nunito:300,400,700|Lato');
@@ -34,17 +37,19 @@ include_once 'page.inc';
     <style>#viz-heroimageWidget794408 div.hero-image{background-size:cover;background-position:50% 50%;background-repeat:no-repeat;height:500px}.viz-heroimageWidget .hero-image{position:relative}.viz-heroimageWidget .hero-fade{display:none}</style><div class=hero-image title="Specials and Packages"><div class=hero-fade></div><style>#viz-heroimageWidget794408 div.hero-image{background-image:url('files/5003/9737455_ImageSmallWidth.jpg')}@media (min-width:768px){#viz-heroimageWidget794408 div.hero-image{background-image:url('files/5003/9737455_ImageMediumWidth.jpg')}}@media (min-width:992px){#viz-heroimageWidget794408 div.hero-image{background-image:url('files/5003/9737455_ImageLargeWidth.jpg')}}</style>
 </div></div><!--/ header --></div>
 
+<?php
+    ////////////////////////////
+    ////////////////////////////
+    ////////////////////////////
+    ////////////////////////////
 
-<div id=contentShell>
-    <div class=container>
-        <div class="text-center animated fadeInUp">
-        <h1 class="text-center">Map here.</h1>
-        </div>
-        <?php print render_php('map.php'); ?>
-    </div>
-</div>
+    print render_php('map.php');
 
-
+    ////////////////////////////
+    ////////////////////////////
+    ////////////////////////////
+    ////////////////////////////
+?>
 
 <div class=content-footer><div class=container><div class=row><!-- content_footer --><div id=viz-emailWidget794224 class="customWidget viz-emailWidget pageWidgetId794224"><style>#viz-emailWidget794224 .btn{line-height:34px;padding:0 25px}#viz-emailWidget794224 .emailSignUpContainer{max-width:400px}#viz-emailWidget794224 iframe{height:275px;padding:0 25px 25px;width:100%;border:0}</style><script>var sURL="";var pageID="";pageID=document.body.id;pageID=pageID.substring(6);</script><div class=emailSignUpContainer><form class=emailSignUp name=emailsignup method=post onsubmit="return NewsletterEmailSignup()"><div class="email-copy col-md-6"><h3 style=margin-top:0>Join our e-mail club!</h3><p class=description>Enter your e-mail address to learn about all of the great deals & packages we offer.</p></div><div id=email class="input-group col-md-6"><input type=email id=txtEmail aria-label="email address" class=form-control name=email required /> <span class=input-group-btn> <button type=submit class="btn btn-default" id=searchsubmit name=Submit value="&lt;span class='fa fa-chevron-right' aria-hidden='true'>&lt;/span>&lt;span class='sr-only'>Submit email&lt;/span>"><span class="fa fa-chevron-right" aria-hidden=true></span><span class=sr-only>Submit email</span></button> </span></div><script language=JavaScript>function NewsletterEmailSignup(){if(document.emailsignup.email.value!=""&&document.emailsignup.email.value!=""){sURL="https://www.vizergy.com/forms/index.aspx?formid=7089&email="+document.emailsignup.email.value+sURL+"&pageid="+pageID+"&siteid="+WWPSiteProperties.siteId+"&DisablePageWidgetChecking=y";$("#viz-emailWidget794224 .email-modal-iframe").attr("src",sURL);$(".email-modal").modal();sURL="";}
 else
@@ -54,5 +59,6 @@ return false;}</script></form></div><div class="modal fade email-modal" tabindex
 
 <div id=address class=vcard><span class="fn org" itemprop=name>Reunion Resort</span> <span class=adr itemprop=address itemscope itemtype=http://schema.org/PostalAddress> <span class=street-address itemprop=streetAddress>7593 Gathering Drive</span> <span class=locality itemprop=addressLocality>Kissimmee,</span> <span class=region itemprop=addressRegion>Florida</span> <span class=postal-code itemprop=postalCode>34747</span> <span class=country-name itemprop=addressCountry> United States</span> </span> <span class=tel> <span class=type><span class=value-title title=work> </span>Phone: </span> <span class=value itemprop=telephone>833.258.0472</span> </span></div></div></div><div class=col-xs-12><!-- footer --><div id=viz-navigationWidget794227 class="customWidget viz-navigationWidget pageWidgetId794227"><style>#viz-navigationWidget794227 .nav > li{float:left}#custom-region-1 .viz-navigationWidget .fa{color:#F9774A;display:block;font-size:55px}</style><ul class="nav highlightpages text-center"><li class=NavLink1><a href=/about-us.htm target=_self>About Us</a></li><li class=NavLink2><a href=/reunionfaq.htm target=_self>FAQ</a></li><li class=NavLink3><a href=/directions.htm target=_self>Directions</a></li><li class=NavLink4><a href=/contact-us.htm target=_self>Contact</a></li><li class=NavLink5><a href=/careers.htm target=_self>Careers</a></li><li class=NavLink6><a href=/gift-cards.htm target=_self>Gift Cards</a></li><li class=NavLink7><a href=/press-room.htm target=_self>Press Room</a></li><li class=NavLink8><a href=/privacy-policy.htm target=_self>Privacy Policy</a></li><li class=NavLink9><a href=/web-accessibility.htm target=_self>Website Accessibility</a></li><li class="NavLink10 NavLinkLast"><a href=/sitemap.htm target=_self>Sitemap</a></li></ul></div><div id=associationsWidget834148 class="associationsWidget pageWidgetId834148"><ul><li><a href=https://preferredhotels.com/property/reunion-resort-golf-club-1218 target=_blank><img src=files/5003/Preferred_Lifestyle.png alt="Preferred Hotels" /></a></li><li><a href=https://preferredhotels.com/property/reunion-resort-golf-club-1218 target=_blank><img src=files/5003/preferred-residences.png alt="Preferred Residences" /></a></li><li><a href="https://preferredhotels.com/iprefer/enroll?enrollcode=ORLRR&amp;hotel=ORLRR" target=_blank><img src=files/5003/I_Prefer_.PNG alt=Iprefer /></a></li></ul></div><!--/ footer --></div></div><div class=copyright><div class="col-md-12 text-center">&copy; <span class=year></span> Reunion Resort <span class=pipe>|</span> <a href=https://www.vizergy.com/hotel-website-design.htm target=_blank>Hotel Website Design</a> by <a href=https://www.vizergy.com target=_blank>Vizergy</a></div></div></div></footer><div id=mobileFooter class="visible-xs visible-sm"><!-- custom6 --><div id=viz-columnsWidget794176 class="customWidget viz-columnsWidget pageWidgetId794176"><div class=row><div class="col-md-6 col-md-offset-0 Column1 col-xs-6 text"><p><a href="https://be.synxis.com/?Hotel=55897" target=_blank><span class="fas fa-golf-ball"></span>RESORT</a></p></div><div class="col-md-6 col-md-offset-0 Column2 ColumnLast col-xs-6 text"><p><a href=/bookvacationhomes.htm target=_blank><span class="fa fa-home"></span>Vacation Rental Homes</a></p></div></div>
 
+<script src="js/custom-map.bundle.js"></script>
 
 </body></html>
