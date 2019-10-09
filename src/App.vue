@@ -197,13 +197,14 @@ export default {
     },
     showDetail: function (e) {
       this.changeView('detail');
+      const that = this.$refs;
       setTimeout(function (el) {
         jQuery('.location-slideshow').on('cycle-before',function(event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag){
-          var currPlayer = window.locationsApp.$refs.mediaslide[optionHash.currSlide];
+          var currPlayer = that.mediaslide[optionHash.currSlide];
           if(currPlayer.player) {
             currPlayer.player.pauseVideo();
           }
-          var nextPlayer = window.locationsApp.$refs.mediaslide[optionHash.nextSlide];
+          var nextPlayer = that.mediaslide[optionHash.nextSlide];
           if(nextPlayer.player) {
             nextPlayer.player.playVideo();
           }
@@ -220,7 +221,7 @@ export default {
   },
   mounted: function() {
     var vueApp = this;
-    this.mapimage = this.$el.getAttribute('data-mapimage').replace('gotobermuda.dev.dd:8083','www.gotobermuda.com');
+    this.mapimage = this.$el.getAttribute('data-mapimage');//.replace('gotobermuda.dev.dd:8083','www.gotobermuda.com');
     var mapBounds = [[32.426793, -64.95490], [32.211887, -64.552683]];
     var imageBounds = [[32.396793, -64.892490], [32.241887, -64.632683]];
     // L.Map.addInitHook("addHandler", "gestureHandling", leafletGestureHandling.GestureHandling);
@@ -292,9 +293,9 @@ export default {
     },
     lightboxMode: function() {
       if(!this.lightboxMode) {
-        for (var i = 0; i < window.locationsApp.$refs.mediaslide.length; i++) {
-          if (window.locationsApp.$refs.mediaslide[i].player) {
-            window.locationsApp.$refs.mediaslide[i].player.pauseVideo();
+        for (var i = 0; i < this.$refs.mediaslide.length; i++) {
+          if (this.$refs.mediaslide[i].player) {
+            this.$refs.mediaslide[i].player.pauseVideo();
           }
         }
       }
@@ -302,7 +303,7 @@ export default {
     zoom: function() {
       this.map.setZoom(this.zoom);
     }
-  },
+  }
 }
 
 </script>
