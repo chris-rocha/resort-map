@@ -133,6 +133,7 @@ import { mapData } from './map.data.js'
 import { CRS } from "leaflet";
 import { LMap, LImageOverlay, LMarker, LPopup, LPolyline } from "vue2-leaflet";
 import { MarkerClusterGroup } from 'leaflet.markercluster'
+import jQuery from 'jquery';
 
 export default {
     name: 'App',
@@ -147,7 +148,75 @@ export default {
         map: null,
         zoom: 12
       }
+    },
+  methods: {
+    streetLink: function (location) {
+      return 'https://maps.google.com/maps?q=&cbll=' + location.latitude + ',' + location.longitude + '&layer=c&cbp=11,0,0,0,0';
+    },
+    directionsLink: function (location) {
+      return 'https://www.google.com/maps/dir/?daddr=' + location.latitude + ',' + location.longitude;
+    },
+    playVideo: function(e) {
+      var video = e.currentTarget.nextSibling;
+      if(video && video.paused) {
+        jQuery(video).on('ended',function(){
+          this.currentTime = 0;
+          this.previousSibling.classList.add('show-icon');
+        })
+        e.currentTarget.classList.remove('show-icon');
+        video.play();
+      }
+      else if(video) {
+        video.pause();
+        e.currentTarget.classList.add('show-icon');
+      }
+    },
+    changeLocation: function (location) {
+      this.currentLocation = location;
+      this.showDetail();
+    },
+    clickMarker: function(e) {
+      this.changeLocation(e.target.location);
+      this.map.panTo([e.latlng.lat, e.latlng.lng]);
+    },
+    changeView: function (view) {
+      if(this.currentView != view) {
+        this.lastView = this.currentView;
+        this.currentView = view;
+      }
+    },
+    resize: function() {
+      if(window.innerWidth < 768) {
+        this.map.setMinZoom(11)
+      }
+      else {
+        this.map.setMinZoom(12)
+      }
+      this.map.setZoom(Math.max(this.map.options.zoom,this.map.options.minZoom));
+    },
+    showDetail: function (e) {
+      this.changeView('detail');
+      setTimeout(function (el) {
+        jQuery('.location-slideshow').on('cycle-before',function(event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag){
+          var currPlayer = window.locationsApp.$refs.mediaslide[optionHash.currSlide];
+          if(currPlayer.player) {
+            currPlayer.player.pauseVideo();
+          }
+          var nextPlayer = window.locationsApp.$refs.mediaslide[optionHash.nextSlide];
+          if(nextPlayer.player) {
+            nextPlayer.player.playVideo();
+          }
+        })
+        jQuery('.location-slideshow', el[0]).cycle();
+      }, 100, [this.$el]);
+    },
+    showLightbox: function(index) {
+      if(this.currentLocation.medias) {
+        jQuery('#slideshow-lightbox .location-slideshow').cycle('goto',index);
+        this.lightboxMode = true;
+      }
     }
+  }
 }
 
 </script>
