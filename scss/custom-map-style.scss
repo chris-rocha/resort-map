@@ -1,6 +1,7 @@
+@import "compass/css3";
 @import "vars";
 @import "mixins";
-@import "compass/css3";
+@import "leaflet";
 
 #map-outer-wrapper {
   width: 100%;
