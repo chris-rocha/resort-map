@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import jQuery from 'jquery';
 import { mapData } from './map.data.js'
+window.$ = window.jQuery = jQuery;
 
 Vue.config.devtools = true
 

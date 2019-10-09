@@ -15,9 +15,6 @@ include_once 'page.inc';
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 <script src="https://www.reunionresort.com/files/5003/combined.js?dt=201906050900"></script>
 
-<script src="js/jquery.cycle2.min.js"></script>
-<script src="js/jquery.cycle2.swipe.min.js"></script>
-
     <script>var WWPSiteProperties={siteId:5003,siteGuid:"aca26e4d-1d05-4a89-bd2e-7c1d4eb09db6",siteCultureCode:"en-US",domainId:5099,domain:"reunionresort.com",domainSSLMandatory:true,mobileDomain:"",mobileDomainSSLMandatory:false,cdbeDomains:["ihotelier.com","reunionresortvacationhomerentals.com"],hasSecureResIBE:false,hasGoogleAnalytics:false,hasMobileSite:false,STFId:1786,OmnitureReportSuiteId:"vizreunionresort.com",TimeZoneName:"Eastern Standard Time"};</script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Source+Sans+Pro:400,400i|Nunito:300,400,700|Lato');

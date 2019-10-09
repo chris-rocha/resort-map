@@ -37,9 +37,6 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin()
   ],
-  externals: {
-    jquery: 'jQuery'
-  },
   resolve: {
     extensions: [".js", ".vue", ".json"],
     alias: {

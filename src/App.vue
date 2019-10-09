@@ -134,6 +134,7 @@ import { CRS } from "leaflet";
 import { LMap, LImageOverlay, LMarker, LPopup, LPolyline } from "vue2-leaflet";
 import { MarkerClusterGroup } from 'leaflet.markercluster'
 import jQuery from 'jquery';
+require('jquery.cycle2');
 
 export default {
     name: 'App',
@@ -197,19 +198,19 @@ export default {
     },
     showDetail: function (e) {
       this.changeView('detail');
-      // setTimeout(function (el) {
-      //   jQuery('.location-slideshow').on('cycle-before',function(event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag){
-      //     var currPlayer = window.locationsApp.$refs.mediaslide[optionHash.currSlide];
-      //     if(currPlayer.player) {
-      //       currPlayer.player.pauseVideo();
-      //     }
-      //     var nextPlayer = window.locationsApp.$refs.mediaslide[optionHash.nextSlide];
-      //     if(nextPlayer.player) {
-      //       nextPlayer.player.playVideo();
-      //     }
-      //   })
-      //   jQuery('.location-slideshow', el[0]).cycle();
-      // }, 100, [this.$el]);
+      setTimeout(function (el) {
+        jQuery('.location-slideshow').on('cycle-before',function(event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag){
+          var currPlayer = window.locationsApp.$refs.mediaslide[optionHash.currSlide];
+          if(currPlayer.player) {
+            currPlayer.player.pauseVideo();
+          }
+          var nextPlayer = window.locationsApp.$refs.mediaslide[optionHash.nextSlide];
+          if(nextPlayer.player) {
+            nextPlayer.player.playVideo();
+          }
+        })
+        jQuery('.location-slideshow').cycle();
+      }, 100, this.$el);
     },
     showLightbox: function(index) {
       if(this.currentLocation.medias) {
