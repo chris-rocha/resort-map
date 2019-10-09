@@ -6,8 +6,7 @@ window.$ = window.jQuery = jQuery;
 
 Vue.config.devtools = true
 
-window.locationsApp = new Vue({
-// var vm = new Vue({
+var vm = new Vue({
   components: { App },
   template: '<App/>',
   el: "#map-outer-wrapper",

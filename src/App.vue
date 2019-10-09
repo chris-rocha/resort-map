@@ -132,7 +132,8 @@
 import { mapData } from './map.data.js'
 import { CRS } from "leaflet";
 import { LMap, LImageOverlay, LMarker, LPopup, LPolyline } from "vue2-leaflet";
-import { MarkerClusterGroup } from 'leaflet.markercluster'
+import { MarkerClusterGroup } from 'leaflet.markercluster';
+import { GestureHandling } from "leaflet-gesture-handling";
 import jQuery from 'jquery';
 require('jquery.cycle2');
 
@@ -174,7 +175,7 @@ export default {
     },
     changeLocation: function (location) {
       this.currentLocation = location;
-      this.showDetail();
+      this.showDetail(location);
     },
     clickMarker: function(e) {
       this.changeLocation(e.target.location);
@@ -208,9 +209,9 @@ export default {
           if(nextPlayer.player) {
             nextPlayer.player.playVideo();
           }
-        })
+        });
         jQuery('.location-slideshow').cycle();
-      }, 100, this.$el);
+      }, 100);
     },
     showLightbox: function(index) {
       if(this.currentLocation.medias) {
@@ -224,7 +225,7 @@ export default {
     this.mapimage = this.$el.getAttribute('data-mapimage');//.replace('gotobermuda.dev.dd:8083','www.gotobermuda.com');
     var mapBounds = [[32.426793, -64.95490], [32.211887, -64.552683]];
     var imageBounds = [[32.396793, -64.892490], [32.241887, -64.632683]];
-    // L.Map.addInitHook("addHandler", "gestureHandling", leafletGestureHandling.GestureHandling);
+    L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
     var map = L.map('locations-map', {
       center: [32.3139, -64.7536],
       zoom: 12,
@@ -286,7 +287,8 @@ export default {
   },
   watch: {
     currentLocation: function () {
-      jQuery('.location-slideshow', this.$el).cycle('destroy');
+      jQuery('.location-slideshow').cycle('reinit');
+      // jQuery('.location-slideshow', this.$el).cycle('destroy');
       if (typeof this.currentLocation !== 'object') {
         this.showMap();
       }
