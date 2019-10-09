@@ -6,7 +6,7 @@ window.$ = window.jQuery = jQuery;
 
 Vue.config.devtools = true
 
-window.locationsApp = new Vue({
+var locationsApp = new Vue({
 // const app = new Vue({
   components: { App },
   template: '<App/>',
@@ -19,8 +19,8 @@ window.locationsApp = new Vue({
     lightboxMode:false,
     map: null,
     zoom: 12
-  }
-  // props: ['mapimage']
+  },
+  props: ['mapimage']
   // watch: {
   //   currentLocation: function () {
   //     jQuery('.location-slideshow', this.$el).cycle('destroy');
