@@ -265,6 +265,7 @@
     -webkit-overflow-scrolling: touch;
     padding-bottom:15px;
     header {
+      position: static;
       display:-ms-grid;
       -ms-grid-columns:auto auto 1fr;
       display:grid;

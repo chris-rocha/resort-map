@@ -5,8 +5,8 @@ import { mapData } from './map.data.js'
 
 Vue.config.devtools = true
 
-const app = new Vue({
-  // el: '#custom-map',
+window.locationsApp = new Vue({
+// const app = new Vue({
   components: { App },
   template: '<App/>',
   el: "#map-outer-wrapper",
