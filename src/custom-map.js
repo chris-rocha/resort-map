@@ -108,69 +108,69 @@ window.locationsApp = new Vue({
   //     }
   //   }
   // },
-  mounted: function() {
-    var vueApp = this;
-    this.mapimage = this.$el.getAttribute('data-mapimage').replace('gotobermuda.dev.dd:8083','www.gotobermuda.com');
-    var mapBounds = [[32.426793, -64.95490], [32.211887, -64.552683]];
-    var imageBounds = [[32.396793, -64.892490], [32.241887, -64.632683]];
-    // L.Map.addInitHook("addHandler", "gestureHandling", leafletGestureHandling.GestureHandling);
-    var map = L.map('locations-map', {
-      center: [32.3139, -64.7536],
-      zoom: 12,
-      minZoom: 12,
-      maxZoom: 15,
-      zoomControl: false,
-      scrollWheelZoom: false,
-      gestureHandling: true
-    });
-    this.map = map;
-    this.zoom = 12;
-    this.map.fitBounds(imageBounds);
+  // mounted: function() {
+  //   var vueApp = this;
+  //   this.mapimage = this.$el.getAttribute('data-mapimage').replace('gotobermuda.dev.dd:8083','www.gotobermuda.com');
+  //   var mapBounds = [[32.426793, -64.95490], [32.211887, -64.552683]];
+  //   var imageBounds = [[32.396793, -64.892490], [32.241887, -64.632683]];
+  //   // L.Map.addInitHook("addHandler", "gestureHandling", leafletGestureHandling.GestureHandling);
+  //   var map = L.map('locations-map', {
+  //     center: [32.3139, -64.7536],
+  //     zoom: 12,
+  //     minZoom: 12,
+  //     maxZoom: 15,
+  //     zoomControl: false,
+  //     scrollWheelZoom: false,
+  //     gestureHandling: true
+  //   });
+  //   this.map = map;
+  //   this.zoom = 12;
+  //   this.map.fitBounds(imageBounds);
 
-    if(this.mapimage) {
-      var imageUrl = this.mapimage;
-      L.imageOverlay(imageUrl, imageBounds).addTo(map);
-    }
+  //   if(this.mapimage) {
+  //     var imageUrl = this.mapimage;
+  //     L.imageOverlay(imageUrl, imageBounds).addTo(map);
+  //   }
 
-    var markers = L.markerClusterGroup({
-      maxClusterRadius: 60,
-      zoomToBoundsOnClick:true,
-      showCoverageOnHover:false,
-      spiderLegPolylineOptions: {opacity: 0},
-      iconCreateFunction: function (cluster) {
-        return L.divIcon({
-          html: '<i class="icon-thick-plus"></i>',
-          iconSize: [30, 30]
-        });
-      }
-    });
+  //   var markers = L.markerClusterGroup({
+  //     maxClusterRadius: 60,
+  //     zoomToBoundsOnClick:true,
+  //     showCoverageOnHover:false,
+  //     spiderLegPolylineOptions: {opacity: 0},
+  //     iconCreateFunction: function (cluster) {
+  //       return L.divIcon({
+  //         html: '<i class="icon-thick-plus"></i>',
+  //         iconSize: [30, 30]
+  //       });
+  //     }
+  //   });
 
-    markers.on('animationend',function(e){
-      vueApp.zoom = map.getZoom();
-    })
+  //   markers.on('animationend',function(e){
+  //     vueApp.zoom = map.getZoom();
+  //   })
 
-    var marker;
-    var markerIcon = L.divIcon({
-      html: '<i class="icon-star"></i>',
-      iconSize: [30, 30]
-    });
+  //   var marker;
+  //   var markerIcon = L.divIcon({
+  //     html: '<i class="icon-star"></i>',
+  //     iconSize: [30, 30]
+  //   });
 
-    for(var i = 0; i < this.locations.length; i++) {
-      var location = this.locations[i];
-      marker = L.marker([location.latitude, location.longitude], {icon: markerIcon});
-      marker.location = location;
-      location.marker = marker;
-      marker.on('click', this.clickMarker);
-      marker.bindTooltip(location.title,{offset:[-20,0],direction:'left'});
-      markers.addLayer(marker);
-    }
+  //   for(var i = 0; i < this.locations.length; i++) {
+  //     var location = this.locations[i];
+  //     marker = L.marker([location.latitude, location.longitude], {icon: markerIcon});
+  //     marker.location = location;
+  //     location.marker = marker;
+  //     marker.on('click', this.clickMarker);
+  //     marker.bindTooltip(location.title,{offset:[-20,0],direction:'left'});
+  //     markers.addLayer(marker);
+  //   }
 
-    map.addLayer(markers);
+  //   map.addLayer(markers);
 
-    jQuery(window).on('resize',function(){
-      vueApp.resize();
-    })
+  //   jQuery(window).on('resize',function(){
+  //     vueApp.resize();
+  //   })
 
 
-  }
+  // }
 });
