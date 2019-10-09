@@ -11,7 +11,10 @@ include_once 'page.inc';
     <link rel=canonical href=https://www.reunionresort.com/specials-and-packages.htm />
 
     <link media="all" rel="stylesheet" href="stylesheets/custom-map-style.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+<script src="https://www.reunionresort.com/files/5003/combined.js?dt=201906050900"></script>
+
 <script src="js/jquery.cycle2.min.js"></script>
 <script src="js/jquery.cycle2.swipe.min.js"></script>
 
