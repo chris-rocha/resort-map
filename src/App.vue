@@ -134,6 +134,7 @@ import { CRS } from "leaflet";
 import { LMap, LImageOverlay, LMarker, LPopup, LPolyline } from "vue2-leaflet";
 import { MarkerClusterGroup } from 'leaflet.markercluster'
 import jQuery from 'jquery';
+import $ from 'jquery';
 
 export default {
     name: 'App',
