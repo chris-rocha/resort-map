@@ -18,28 +18,28 @@ window.locationsApp = new Vue({
     lightboxMode:false,
     map: null,
     zoom: 12
-  },
-  props: ['mapimage'],
-  watch: {
-    currentLocation: function () {
-      jQuery('.location-slideshow', this.$el).cycle('destroy');
-      if (typeof this.currentLocation !== 'object') {
-        this.showMap();
-      }
-    },
-    lightboxMode: function() {
-      if(!this.lightboxMode) {
-        for (var i = 0; i < window.locationsApp.$refs.mediaslide.length; i++) {
-          if (window.locationsApp.$refs.mediaslide[i].player) {
-            window.locationsApp.$refs.mediaslide[i].player.pauseVideo();
-          }
-        }
-      }
-    },
-    zoom: function() {
-      this.map.setZoom(this.zoom);
-    }
-  },
+  }
+  // props: ['mapimage']
+  // watch: {
+  //   currentLocation: function () {
+  //     jQuery('.location-slideshow', this.$el).cycle('destroy');
+  //     if (typeof this.currentLocation !== 'object') {
+  //       this.showMap();
+  //     }
+  //   },
+  //   lightboxMode: function() {
+  //     if(!this.lightboxMode) {
+  //       for (var i = 0; i < window.locationsApp.$refs.mediaslide.length; i++) {
+  //         if (window.locationsApp.$refs.mediaslide[i].player) {
+  //           window.locationsApp.$refs.mediaslide[i].player.pauseVideo();
+  //         }
+  //       }
+  //     }
+  //   },
+  //   zoom: function() {
+  //     this.map.setZoom(this.zoom);
+  //   }
+  // },
   // methods: {
   //   streetLink: function (location) {
   //     return 'https://maps.google.com/maps?q=&cbll=' + location.latitude + ',' + location.longitude + '&layer=c&cbp=11,0,0,0,0';

@@ -149,6 +149,7 @@ export default {
         zoom: 12
       }
     },
+  props: ['mapimage'],
   methods: {
     streetLink: function (location) {
       return 'https://maps.google.com/maps?q=&cbll=' + location.latitude + ',' + location.longitude + '&layer=c&cbp=11,0,0,0,0';
