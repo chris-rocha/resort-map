@@ -11,12 +11,12 @@
     </div>
     <div id="map-controls">
       <button class="leaflet-zoom-in button"
-              v-on:click="zoom += 1">+<i class="icon-plus"></i></button>
+              v-on:click="zoom += 1"><i class="fa fa-plus" aria-hidden="true"></i></button>
       <button class="leaflet-zoom-out button"
-              v-on:click="zoom -= 1">-<i class="icon-minus"></i></button>
+              v-on:click="zoom -= 1"><i class="fa fa-minus" aria-hidden="true"></i></button>
       <button class="show-locations button arrow"
               v-on:click="changeView('summaries')">
-        <span>See All Locations</span><i class="icon-thick-triangle-right"></i>
+        <span>See All Locations</span> <i class="fa fa-angle-right" aria-hidden="true"></i>
       </button>
     </div>
     <div id="location-summaries">
@@ -55,9 +55,9 @@
           <div class="detail-column">
             <header class="flex-center add-bottom">
               <button class="show-map" aria-label="Back to Map"
-                      v-on:click="changeView('map')"><i class="icon-bermuda"></i>Map</button>
+                      v-on:click="changeView('map')"><i class="fa fa-globe" aria-hidden="true"></i> Map</button>
               <button class="show-locations" aria-label="See All Locations"
-                      v-on:click="changeView('summaries')"><i class="icon-list-bullet"></i>List</button>
+                      v-on:click="changeView('summaries')"><i class="fa fa-list" aria-hidden="true"></i> List</button>
               <h2>{{currentLocation.title}}</h2>
             </header>
             <div class="location-slideshow"
@@ -67,13 +67,13 @@
                  data-cycle-timeout="0"
                  data-cycle-slides="> .location-media">
               <div class="location-media" v-for="(media,index) in currentLocation.medias">
-                <div v-if="media.type == 'image'" v-on:click="showLightbox(index)"><i class="icon-expand color white"></i><img src="" title="" v-bind:src="media.src" v-bind:title="media.caption" width="100%" height="100" /></div>
-                <div v-else-if="media.type == 'youtube'" v-on:click="showLightbox(index)"><div class="icon"><i class="icon-play"></i></div><img src="" title="" v-bind:src="'https://img.youtube.com/vi/'+media.ytid+'/hqdefault.jpg'" v-bind:title="media.caption" width="100%" height="100" /></div>
+                <div v-if="media.type == 'image'" v-on:click="showLightbox(index)"><i class="fa fa-expand color white"></i><img src="" title="" v-bind:src="media.src" v-bind:title="media.caption" width="100%" height="100" /></div>
+                <div v-else-if="media.type == 'youtube'" v-on:click="showLightbox(index)"><div class="icon"><i class="fa fa-play-circle"></i></div><img src="" title="" v-bind:src="'https://img.youtube.com/vi/'+media.ytid+'/hqdefault.jpg'" v-bind:title="media.caption" width="100%" height="100" /></div>
               </div>
               <a class="cycle-prev" href="javascript:void(0)"
-                 v-if="currentLocation.medias.length > 1"><i class="icon-thick-triangle-left"></i></a>
+                 v-if="currentLocation.medias.length > 1"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
               <a class="cycle-next" href="javascript:void(0)"
-                 v-if="currentLocation.medias.length > 1"><i class="icon-thick-triangle-right"></i></a>
+                 v-if="currentLocation.medias.length > 1"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
               <div class="cycle-pager"
                    v-if="currentLocation.medias.length > 1"></div>
 
@@ -115,9 +115,9 @@
           <figure v-else-if="media.type == 'youtube'"><youtube ref="mediaslide" :video-id="media.ytid" :player-vars="{autoplay:0,controls:0,showinfo:0,modestbranding:1,wmode:'transparent',rel:0}"></youtube><figcaption>{{media.caption}}</figcaption></figure>
         </div>
         <a class="cycle-prev" href="javascript:void(0)"
-           v-if="currentLocation.medias.length"><i class="icon-thick-triangle-left"></i></a>
+           v-if="currentLocation.medias.length"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
         <a class="cycle-next" href="javascript:void(0)"
-           v-if="currentLocation.medias.length"><i class="icon-thick-triangle-right"></i></a>
+           v-if="currentLocation.medias.length"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
         <div class="cycle-pager"
              v-if="currentLocation.medias.length"></div>
         <a class="close color white all-caps" href="javascript:void(0)"
@@ -251,7 +251,7 @@ export default {
       spiderLegPolylineOptions: {opacity: 0},
       iconCreateFunction: function (cluster) {
         return L.divIcon({
-          html: '<i class="icon-thick-plus"></i>',
+          html: '<i class="fa fa-plus" aria-hidden="true"></i>',
           iconSize: [30, 30]
         });
       }
@@ -263,7 +263,7 @@ export default {
 
     var marker;
     var markerIcon = L.divIcon({
-      html: '<i class="icon-star"></i>',
+      html: '<i class="fa fa-star" aria-hidden="true"></i>',
       iconSize: [30, 30]
     });
 
@@ -287,8 +287,7 @@ export default {
   },
   watch: {
     currentLocation: function () {
-      jQuery('.location-slideshow').cycle('reinit');
-      // jQuery('.location-slideshow', this.$el).cycle('destroy');
+      jQuery('.location-slideshow', this.$el).cycle('destroy');
       if (typeof this.currentLocation !== 'object') {
         this.showMap();
       }

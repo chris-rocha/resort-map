@@ -4,6 +4,9 @@
 @import "leaflet";
 
 #map-outer-wrapper {
+  .color.white {
+    color: white;
+  }
   background-color: #ccc;
 
   width: 100%;
@@ -146,6 +149,7 @@
   background: none;
 
   .leaflet-div-icon {
+    color: white;
     display: block;
     border-radius: 50%;
     width: 30px; height: 30px; line-height: 28px;
@@ -154,12 +158,6 @@
     text-align: center;
     @include box-shadow(0 0 5px black);
     border-width:0;
-    i.icon-thick-plus {
-      color: white;
-    }
-    i.icon-star {
-      color: yellow;
-    }
   }
 
   .leaflet-zoom-anim .leaflet-zoom-animated {
@@ -447,6 +445,7 @@
   z-index: 0;
   @include transition(all 250ms ease-in-out);
   &.show {
+    display: flex !important;
     opacity: 1;
     z-index: 4;
   }
