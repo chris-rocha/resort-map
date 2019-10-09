@@ -51,7 +51,7 @@
         <div class="top-bar flex-center center-text">
 
         </div>
-        <div v-if="currentLocation" class="location-detail-inner">
+        <div v-if="currentLocation" :key="currentLocation.id" class="location-detail-inner">
           <div class="detail-column">
             <header class="flex-center add-bottom">
               <button class="show-map" aria-label="Back to Map"
@@ -108,7 +108,7 @@
         </div>
       </div>
     </div>
-    <div id="slideshow-lightbox" v-if="currentLocation" v-bind:class="{'show':lightboxMode}" v-on:click.self="lightboxMode = false">
+    <div id="slideshow-lightbox" v-if="currentLocation" :key="currentLocation.id" v-bind:class="{'show':lightboxMode}" v-on:click.self="lightboxMode = false">
       <div class="location-slideshow" data-cycle-next="> .cycle-next" data-cycle-prev="> .cycle-prev" data-cycle-pager="> .cycle-pager" data-cycle-timeout="0" data-cycle-slides="> .location-media">
         <div class="location-media" v-for="(media,index) in currentLocation.medias">
           <figure ref="mediaslide" v-if="media.type == 'image'"><img src="" title="" v-bind:src="media.src" /><figcaption>{{media.caption}}</figcaption></figure>
