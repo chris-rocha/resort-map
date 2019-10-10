@@ -76,7 +76,7 @@
 
             </div>
             <div class="center-text">
-              <a class="button street-view arrow" target="_blank" href="javascript:void(0)"
+              <a target="_blank" href="javascript:void(0)"
                  v-if="currentLocation.showStreetView" v-bind:href="streetLink(currentLocation)">See Street View</a>
             </div>
           </div>
