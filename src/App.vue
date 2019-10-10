@@ -3,9 +3,6 @@
      v-bind:class="{'show-summaries': currentView == 'summaries', 'show-detail': currentView == 'detail'}"
      data-mapimage="https://www.gotobermuda.com/sites/default/files/winter-map-3.svg">
   <div id="map-wrapper">
-    <div id="map-header">
-      <h2 class="remove-bottom">Map Header</h2>
-    </div>
     <div id="map-body">
       <div id="locations-map" v-on:click="changeView('map')"></div>
     </div>
@@ -21,8 +18,8 @@
     </div>
     <div id="location-summaries">
       <div class="content">
-        <div class="top-bar flex-center center-text fill blue">
-          <h4 class="color white remove-bottom">Location Type</h4>
+        <div class="top-bar flex-center center-text">
+          <h4 class="color white remove-bottom">All Locations</h4>
         </div>
         <div class="location-summaries-inner">
           <div class="location-summary" v-for="(location,key) in locations" v-bind:key="location.id">
@@ -33,9 +30,9 @@
               <h6>{{location.title}}</h6>
             </div>
             <div class="buttons">
-              <a class="button blue" target="_blank" href="javascript:void(0)"
+              <a class="button" target="_blank" href="javascript:void(0)"
                  v-if="location.showDirections" v-bind:href="directionsLink(location)">Directions</a>
-              <a class="button blue" href="javascript:void(0)"
+              <a class="button green" href="javascript:void(0)"
                   v-on:click="changeLocation(location)">Learn More</a>
             </div>
           </div>
@@ -102,7 +99,7 @@
                 </div>
               </div>
             </div>
-            <button class="close-button blue-solid full-width add-bottom" aria-label="Return to Last View"
+            <button class="close-button button orange full-width" aria-label="Return to Last View"
                     v-on:click="changeView(lastView)">Close</button>
           </div>
         </div>
